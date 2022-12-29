@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Navbar from '../components/Navbar'
 import Link  from 'next/link'
+import baseUrl from './Models/BaseUrl'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,8 +36,19 @@ export default function Home({ products }) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/products");
+// export async function getStaticProps() {
+//   const res = await fetch(`${baseUrl}api/products`);
+//   const data = await res.json();
+
+//   return {
+//     props: {
+//       products: data
+//     }
+//   }
+// }
+
+export async function getServerSideProps(){
+  const res = await fetch(`${baseUrl}api/products`);
   const data = await res.json();
 
   return {
@@ -44,5 +56,4 @@ export async function getStaticProps() {
       products: data
     }
   }
-
 }
