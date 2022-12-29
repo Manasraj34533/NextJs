@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "../components/Navbar";
 import { useRouter } from "next/router"
 import { useRef,useEffect } from "react";
 import baseUrl from "../Models/BaseUrl";
